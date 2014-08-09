@@ -1,0 +1,14 @@
+" Author: Ashgenesis
+set guifont=Monospace\ 12
+set guioptions-=m
+set guioptions-=T
+set guioptions-=l
+set guioptions-=r
+set guioptions-=L
+set guioptions-=b
+set guioptions+=h
+set guioptions-=r
+
+set lcs=tab:˒\ ,trail:-,precedes:<,extends:>
+
+au! BufWritePost .gvimrc source ~/.gvimrc

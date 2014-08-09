@@ -1,0 +1,79 @@
+colorscheme lucius
+
+syntax enable
+
+let maplocalleader = ','
+
+runtime! plugin/**/*.vim
+
+set autoindent
+set backspace=indent,eol,start
+set browsedir=buffer
+set cmdheight=1
+set completeopt=menu,preview
+set cursorcolumn
+set cursorline
+set encoding=utf-8
+set expandtab
+set fileencodings=utf-8
+set fileformats=unix,mac,dos
+set fillchars+=vert:\+
+set fillchars-=vert:\|
+set foldclose=
+set foldmethod=syntax
+set hlsearch
+set ignorecase
+set incsearch
+set keymodel=startsel
+set laststatus=2
+set lcs=tab:\|\ ,trail:-,precedes:←,extends:➜,nbsp:˽
+set list
+set modeline
+set nobackup
+set nobomb
+set nocompatible
+set noerrorbells
+set noswapfile
+set novisualbell
+set nowrap
+set nrformats=octal,hex,alpha
+set nu
+set selection=inclusive
+set shiftwidth=4
+"set shortmess=a
+set softtabstop=4
+set tabstop=4
+set title
+set ttyfast
+set viminfo='20,\"50,:20,%,n~/.viminfo
+set wildmenu
+set wildmode=longest:full
+set wildchar=<Tab>
+set wildcharm=<C-Z>
+set winminheight=0
+set winminwidth=0
+set whichwrap=<,>,h,l,[,]
+
+
+filetype plugin on
+
+"Navigate into buffers
+nnoremap <silent> <C-Up> <C-W>W
+nnoremap <silent> <C-Left> <C-W>h
+nnoremap <silent> <C-Down> <C-W>w
+nnoremap <silent> <C-Right> <C-W>l
+
+vnoremap < <gv
+vnoremap > >gv
+
+"nnoremap <silent> <Tab> :HighwayToggle<CR>
+nnoremap <silent> <C-Space> :%s/\s\+$//<CR>
+
+"Markdown syntax color for file md
+au BufRead,BufNewFile *.md set filetype=markdown
+
+"Activate pathogen
+execute pathogen#infect()
+
+"Activate calendar
+let g:calendar_google_calendar = 1
