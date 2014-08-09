@@ -1,0 +1,47 @@
+[user]
+    name = Alexis von Glasow
+    email = vonglasow@gmail.com
+
+[alias]
+    amend = commit --amend
+    st = status
+    ci = commit
+    co = checkout
+    changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
+    oneline = log --pretty=oneline --abbrev-commit --graph
+    who = shortlog -sne
+    lc = !git oneline ORIG_HEAD.. --stat --no-merges
+    addm = !git-ls-files -m -z | xargs -0 git-add && git status
+    addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
+    rmm = !git ls-files -d -z | xargs -0 git-rm && git status
+    mate = !git-ls-files -m -z | xargs -0 gvim
+    mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 gvim
+    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    graphx = !GIT_PAGER='less -FRSX' git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative --all
+    lint  = !git st --porcelain | grep -e '^[AUM ][UM ].*\\.php$' | awk '{print $2}' | xargs -L 1 php -l
+    list-alias = !git config --get-regexp alias
+    lout = log --pretty=oneline --abbrev-commit --graph @{u}..
+    out = !git fetch && git lout
+    lin = log --pretty=oneline --abbrev-commit --graph ..@{u}
+    in = !git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}
+    undo = reset --soft HEAD^
+    serve = daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+    unstage = !git reset HEAD
+    pullify = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
+    info = remote -v
+
+[color]
+    ui = true
+
+[branch]
+    autosetuprebase = always
+
+[pull]
+    rebase = true
+
+[merge]
+    tool = gvimdiff
+
+
