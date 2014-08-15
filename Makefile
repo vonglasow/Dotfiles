@@ -40,6 +40,12 @@ zsh: ~/.zprezto
 	@echo 'Deploy zsh config'
 	$(shell git clone --recursive https://github.com/sorin-ionescu/prezto.git `pwd`/../prezto)
 	$(shell ln -s `pwd`/../prezto ~/.zprezto)
+	$(shell ln -s `pwd`/../prezto/runcoms/zlogin ~/.zlogin)
+	$(shell ln -s `pwd`/../prezto/runcoms/zlogout ~/.zlogout)
+	$(shell ln -s `pwd`/../prezto/runcoms/zpreztorc ~/.zpreztorc)
+	$(shell ln -s `pwd`/../prezto/runcoms/zprofile ~/.zprofile)
+	$(shell ln -s `pwd`/../prezto/runcoms/zshenv ~/.zshenv)
+	$(shell ln -s `pwd`/../prezto/runcoms/zshrc ~/.zshrc)
 
 remove-hg:
 	@echo 'Remove Mercurial'
