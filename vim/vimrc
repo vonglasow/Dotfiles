@@ -54,7 +54,6 @@ set winminheight=0
 set winminwidth=0
 set whichwrap=<,>,h,l,[,]
 
-
 filetype plugin on
 
 "Navigate into buffers
