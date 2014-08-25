@@ -3,13 +3,15 @@ First config with makefile to deploy
 
 #Makefile
 ##make all 
-    install git config, vim config, mercurial config
-##make ~/.vim
+    install git config, vim config, mercurial config, zsh config
+##make vim
     install vim config
-##make ~/.hgrc 
+##make hg
     install mercurial config
-##make ~/.gitconfig 
+##make git
     install git config
+##make zsh
+    install zsh config
 ##make clean 
     Remove all config deploy
 ##make help 
