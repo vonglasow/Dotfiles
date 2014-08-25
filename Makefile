@@ -20,21 +20,21 @@ zsh: ~/.zprezto
 
 ~/.gitconfig:
 	@echo 'Deploy git config'
-	$(shell ln -s `pwd`/gitconfig ~/.gitconfig)
+	$(shell ln -s `pwd`/gitconfig $@)
 
 ~/.hgrc:
 	@echo 'Deploy mercurial config'
-	$(shell ln -s `pwd`/hgrc ~/.hgrc)
+	$(shell ln -s `pwd`/hgrc $@)
 
 ~/.gvimrc:
-	$(shell ln -s `pwd`/vim/gvimrc ~/.gvimrc)
+	$(shell ln -s `pwd`/vim/gvimrc $@)
 
 ~/.vimrc:
-	$(shell ln -s `pwd`/vim/vimrc ~/.vimrc)
+	$(shell ln -s `pwd`/vim/vimrc $@)
 
 ~/.vim:
 	@echo 'Deploy vim config'
-	$(shell ln -s `pwd`/vim/vim ~/.vim)
+	$(shell ln -s `pwd`/vim/vim $@)
 
 ~/.zprezto:
 	@echo 'Deploy zsh config'
