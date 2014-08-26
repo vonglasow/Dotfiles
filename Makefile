@@ -38,7 +38,7 @@ zsh: ~/.zprezto
 
 ~/.zprezto:
 	@echo 'Deploy zsh config'
-	$(shell git clone --recursive https://github.com/sorin-ionescu/prezto.git `pwd`/../prezto)
+	$(shell git clone --recursive git@github.com:vonglasow/prezto.git `pwd`/../prezto)
 	$(shell ln -s `pwd`/../prezto ~/.zprezto)
 	$(shell ln -s `pwd`/../prezto/runcoms/zlogin ~/.zlogin)
 	$(shell ln -s `pwd`/../prezto/runcoms/zlogout ~/.zlogout)
