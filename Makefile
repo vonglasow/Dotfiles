@@ -2,7 +2,14 @@ GREP := grep
 VGREP:= $(GREP) -v
 AWK  := awk
 SORT := sort
-PR   := pr --omit-pagination --width=80 --columns=4
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	PR   := pr --omit-pagination --width=80 --columns=4
+endif
+ifeq ($(UNAME_S),Darwin)
+	PR   := pr -t -w 80
+endif
 
 help:
 	@make -pq | 									\
