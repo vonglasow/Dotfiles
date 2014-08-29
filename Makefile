@@ -1,19 +1,21 @@
 GREP := grep
-VGREP:= $(GREP) -v
+VGREP:= $(GREP) -Ev
 AWK  := awk
 SORT := sort
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	PR   := pr --omit-pagination --width=80 --columns=4
+	GREPSTRING := Makefile
 endif
 ifeq ($(UNAME_S),Darwin)
-	PR   := pr -t -w 80
+	PR   := pr -4 -t -w 80
+	GREPSTRING := 'Makefile|0x1F5:0:9'
 endif
 
 help:
 	@make -pq | 									\
-	$(VGREP) Makefile |								\
+	$(VGREP) $(GREPSTRING) |						\
 	$(AWK) '/(^[^.%][-A-Za-z0-9_]*):/ 				\
 		{ print substr($$1, 1, length($$1)-1) }' | 	\
 	$(SORT) | $(PR)
