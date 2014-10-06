@@ -26,6 +26,7 @@ git: ~/.gitconfig
 hg: ~/.hgrc
 vim: ~/.vim ~/.vimrc ~/.gvimrc
 zsh: ~/.zprezto
+tmux: ~/.tmux.conf
 
 ~/.gitconfig:
 	@echo 'Deploy git config'
@@ -56,6 +57,10 @@ zsh: ~/.zprezto
 	ln -s $(CURDIR)/../prezto/runcoms/zshenv ~/.zshenv
 	ln -s $(CURDIR)/../prezto/runcoms/zshrc ~/.zshrc
 
+~/.tmux.conf:
+	@echo 'Deploy tmux config'
+	ln -s $(CURDIR)/tmux $@
+
 remove-hg:
 	@echo 'Remove Mercurial'
 	rm -rf ~/.hgrc
@@ -80,7 +85,11 @@ remove-zsh:
 	rm -rf ~/.zshenv
 	rm -rf ~/.zshrc
 
-clean: remove-hg remove-git remove-vim remove-zsh
+remove-tmux:
+	@echo 'Remove Tmux config'
+	rm -rf ~/.tmux.conf
 
-.PHONY: clean help remove-hg remove-git remove-vim remove-zsh vim git hg zsh
+clean: remove-hg remove-git remove-vim remove-zsh remove-tmux
+
+.PHONY: clean help remove-hg remove-git remove-vim remove-zsh vim git hg zsh tmux
 
