@@ -20,7 +20,6 @@ help:
 		{ print substr($$1, 1, length($$1)-1) }' | 	\
 	$(SORT) | $(PR)
 
-install: all
 all: git hg vim zsh
 
 git: ~/.gitconfig
@@ -85,6 +84,7 @@ remove-zsh:
 	rm -rf ~/.zprofile
 	rm -rf ~/.zshenv
 	rm -rf ~/.zshrc
+	rm -rf $(CURDIR)/../prezto
 
 remove-tmux:
 	@echo 'Remove Tmux config'
