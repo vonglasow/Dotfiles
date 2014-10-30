@@ -20,7 +20,7 @@ help:
 		{ print substr($$1, 1, length($$1)-1) }' | 	\
 	$(SORT) | $(PR)
 
-all: git hg vim zsh
+all: git hg vim zsh tmux
 
 git: ~/.gitconfig
 hg: ~/.hgrc
