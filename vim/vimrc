@@ -65,7 +65,7 @@ nnoremap <silent> <C-Right> <C-W>l
 vnoremap < <gv
 vnoremap > >gv
 
-"nnoremap <silent> <Tab> :HighwayToggle<CR>
+nnoremap <silent> <Tab> :NERDTreeToggle<CR>
 nnoremap <silent> <C-Space> :%s/\s\+$//<CR>
 
 "Markdown syntax color for file md
