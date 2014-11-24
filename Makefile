@@ -45,6 +45,7 @@ tmux: ~/.tmux.conf
 ~/.vim:
 	@echo 'Deploy vim config'
 	ln -s $(CURDIR)/vim/vim $@
+	git submodule update --init --recursive
 
 ~/.zprezto:
 	@echo 'Deploy zsh config'
