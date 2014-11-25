@@ -45,3 +45,5 @@
     tool = gvimdiff
 
 
+[push]
+	default = simple
