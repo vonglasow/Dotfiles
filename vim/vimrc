@@ -76,3 +76,7 @@ execute pathogen#infect()
 
 "Activate calendar
 let g:calendar_google_calendar = 1
+
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_php_phpcs_args='--standard=PSR2'
+let g:syntastic_php_checkers = ["php", "phpmd", "phpcs"]
