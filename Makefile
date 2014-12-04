@@ -20,13 +20,14 @@ help:
 		{ print substr($$1, 1, length($$1)-1) }' | 	\
 	$(SORT) | $(PR)
 
-all: git hg vim zsh tmux
+all: git hg vim zsh tmux fzf
 
 git: ~/.gitconfig
 hg: ~/.hgrc
 vim: ~/.vim ~/.vimrc ~/.gvimrc
 zsh: ~/.zprezto
 tmux: ~/.tmux.conf
+fzf: ~/.fzf
 
 ~/.gitconfig:
 	@echo 'Deploy git config'
@@ -62,6 +63,11 @@ tmux: ~/.tmux.conf
 	@echo 'Deploy tmux config'
 	ln -s $(CURDIR)/tmux $@
 
+~/.fzf:
+	@echo 'Deploy fzf config'
+	ln -s $(CURDIR)/fzf $@
+	y y | ~/.fzf/install
+
 remove-hg:
 	@echo 'Remove Mercurial'
 	rm -rf ~/.hgrc
@@ -90,6 +96,11 @@ remove-zsh:
 remove-tmux:
 	@echo 'Remove Tmux config'
 	rm -rf ~/.tmux.conf
+
+remove-fzf:
+	@echo 'Remove fzf config'
+	~/.fzf/uninstall
+	rm -rf ~/.fzf
 
 clean: remove-hg remove-git remove-vim remove-zsh remove-tmux
 
