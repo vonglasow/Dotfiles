@@ -7,6 +7,8 @@
     st = status
     ci = commit
     co = checkout
+    ba = branch -a
+    b = branch
     changes = diff --name-status
     dic = diff --cached
     diffstat = diff --stat
