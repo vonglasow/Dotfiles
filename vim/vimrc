@@ -53,6 +53,7 @@ set wildcharm=<C-Z>
 set winminheight=0
 set winminwidth=0
 set whichwrap=<,>,h,l,[,]
+set tags=.tags;/
 
 filetype plugin on
 
@@ -77,11 +78,10 @@ execute pathogen#infect()
 "Activate calendar
 let g:calendar_google_calendar = 1
 
+"Syntastic configuration
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_phpcs_args='--standard=PSR2'
 let g:syntastic_php_checkers = ["php", "phpmd", "phpcs"]
 
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+"change current folder to the one where the buffer is.
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
