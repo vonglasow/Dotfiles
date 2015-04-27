@@ -1,9 +1,9 @@
 [submodule "vim/vim/bundle/nerdtree"]
 	path = vim/vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/vim/bundle/tabular"]
 	path = vim/vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/vim/bundle/syntastic"]
 	path = vim/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -15,4 +15,4 @@
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "vim/vim/bundle/calendar.vim"]
 	path = vim/vim/bundle/calendar.vim
-	url = git@github.com:itchyny/calendar.vim.git
+	url = https://github.com/itchyny/calendar.vim.git
