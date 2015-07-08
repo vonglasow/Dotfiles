@@ -50,7 +50,7 @@ fzf: ~/.fzf
 
 ~/.zprezto:
 	@echo 'Deploy zsh config'
-	git clone --recursive git@github.com:vonglasow/prezto.git $(CURDIR)/../prezto
+	git clone --recursive https://github.com/vonglasow/prezto.git $(CURDIR)/../prezto
 	ln -s $(CURDIR)/../prezto ~/.zprezto
 	ln -s $(CURDIR)/../prezto/runcoms/zlogin ~/.zlogin
 	ln -s $(CURDIR)/../prezto/runcoms/zlogout ~/.zlogout
