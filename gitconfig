@@ -9,6 +9,7 @@
     co = checkout
     ba = branch -a
     b = branch
+    f = fetch --all -p
     changes = diff --name-status
     dic = diff --cached
     diffstat = diff --stat
@@ -34,6 +35,7 @@
     pullify = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
     info = remote -v
     unstash = stash pop
+    fm = !git f && git co $2 && git pull && git co $1 && git pull && git merge $2
 
 [color]
     ui = true
