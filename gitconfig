@@ -19,8 +19,8 @@
     addm = !git-ls-files -m -z | xargs -0 git-add && git status
     addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
     rmm = !git ls-files -d -z | xargs -0 git-rm && git status
-    mate = !git-ls-files -m -z | xargs -0 gvim
-    mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 gvim
+    mate = !git-ls-files -m -z | xargs -0 vim
+    mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 vim
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     graphx = !GIT_PAGER='less -FRSX' git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative --all
     lint  = !git st --porcelain | grep -e '^[AUM ][UM ].*\\.php$' | awk '{print $2}' | xargs -L 1 php -l
@@ -36,6 +36,8 @@
     info = remote -v
     unstash = stash pop
     fm = !git f && git co $2 && git pull && git co $1 && git pull && git merge $2
+    clb = "!f() { git f && git co develop && for b in `git b | grep -v master | grep -v develop`; do git branch -D $b; done; }; f;"
+    clab = "!f() { git clb && git branch -D master && git co master && git branch -D develop && git co develop; }; f;"
 
 [color]
     ui = true
@@ -43,12 +45,8 @@
 [branch]
     autosetuprebase = always
 
-[pull]
-    rebase = true
-
 [merge]
     tool = gvimdiff
-
 
 [push]
 	default = simple

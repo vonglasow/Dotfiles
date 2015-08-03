@@ -85,3 +85,7 @@ let g:syntastic_php_checkers = ["php", "phpmd", "phpcs"]
 
 "change current folder to the one where the buffer is.
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+
+if executable('ag')
+  let g:ackprg = 'ag -i --vimgrep'
+endif
