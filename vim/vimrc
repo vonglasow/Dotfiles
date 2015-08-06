@@ -71,6 +71,7 @@ nnoremap <silent> <C-Space> :%s/\s\+$//<CR>
 
 "Markdown syntax color for file md
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.pp set filetype=pp
 
 "Activate pathogen
 execute pathogen#infect()

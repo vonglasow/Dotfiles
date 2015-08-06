@@ -38,6 +38,8 @@
     fm = !git f && git co $2 && git pull && git co $1 && git pull && git merge $2
     clb = "!f() { git f && git co develop && for b in `git b | grep -v master | grep -v develop`; do git branch -D $b; done; }; f;"
     clab = "!f() { git clb && git branch -D master && git co master && git branch -D develop && git co develop; }; f;"
+    clmb = "!f() { git co develop && for b in `git branch --merged | grep -v master | grep -v develop`; do git branch -D $b; done; }; f;"
+    clamb = "!f() { git clmb && for b in `git branch -r --merged | grep origin | grep -v master | grep -v develop | awk -F/ '{print $2}'`; do git push origin :$b; done; }; f;"
 
 [color]
     ui = true
