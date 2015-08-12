@@ -40,6 +40,7 @@
     clab = "!f() { git clb && git branch -D master && git co master && git branch -D develop && git co develop; }; f;"
     clmb = !git co develop && git branch --merged | grep -v master | grep -v develop | xargs -rl git branch -D
     clamb = !git clmb && git branch -r --merged | grep origin | grep -v master | grep -v develop | sed -e 's_/_ :_g' | xargs -rl echo git push
+    csfixer = !git-ls-files -m | xargs -l php-cs-fixer fix --dry-run --level=all --ansi --diff --verbose
 
 [color]
     ui = true
