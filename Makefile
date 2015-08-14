@@ -22,7 +22,7 @@ help:
 
 all: git hg vim zsh tmux fzf
 
-git: ~/.gitconfig
+git: ~/.gitconfig ~/.gitalias
 hg: ~/.hgrc
 vim: ~/.vim ~/.vimrc ~/.gvimrc
 zsh: ~/.zprezto
@@ -32,6 +32,9 @@ fzf: ~/.fzf
 ~/.gitconfig:
 	@echo 'Deploy git config'
 	ln -s $(CURDIR)/gitconfig $@
+
+~/.gitalias:
+	ln -s $(CURDIR)/gitalias $@
 
 ~/.hgrc:
 	@echo 'Deploy mercurial config'
