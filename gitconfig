@@ -7,6 +7,11 @@
 
 [color]
     ui = true
+[color "diff"]
+    meta = cyan bold
+    frag = yellow
+    old = red bold
+    new = green bold
 
 [branch]
     autosetuprebase = always
