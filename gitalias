@@ -12,6 +12,7 @@
     oneline = log --pretty=oneline --abbrev-commit --graph
     who = shortlog -sne
     lc = !git oneline ORIG_HEAD.. --stat --no-merges
+    lv = log --name-status
     addm = !git-ls-files -m -z | xargs -0 git-add && git status
     addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
     rmm = !git ls-files -d -z | xargs -0 git-rm && git status
@@ -36,4 +37,4 @@
     clab = "!f() { git clb && git branch -D master && git co master && git branch -D develop && git co develop; }; f;"
     clmb = !git co develop && git branch --merged | grep -v master | grep -v develop | xargs -rl git branch -D
     clamb = !git clmb && git branch -r --merged | grep origin | grep -v master | grep -v develop | sed -e 's_/_ :_g' | xargs -rl echo git push
-    csfixer = !git-ls-files -m | xargs -l php-cs-fixer fix --dry-run --level=all --ansi --diff --verbose
+    csfixer = !git-ls-files -m | xargs -l php-cs-fixer fix --dry-run --level=psr2 --ansi --diff --verbose
