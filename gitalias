@@ -39,3 +39,7 @@
     clmb = !git co develop && git branch --merged | grep -v master | grep -v develop | xargs -rl git branch -D
     clamb = !git clmb && git branch -r --merged | grep origin | grep -v master | grep -v develop | sed -e 's_/_ :_g' | xargs -rl echo git push
     csfixer = !git-ls-files -m | xargs -l php-cs-fixer fix --dry-run --level=psr2 --ansi --diff --verbose
+    rmext = !git-ls-files -o --exclude-standard | xargs echo rm -rf
+    rmorig = !find . -name *.orig -type f | xargs -rl echo rm -rf
+    sstash = "!sh -c 'git stash show -p stash@{$1}' -"
+    sd = !sh -c \"git stash drop stash@{$1}\" -
